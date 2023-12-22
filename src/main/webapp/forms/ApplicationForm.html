@@ -1,0 +1,64 @@
+<form name="ApplicationForm">
+    <div class="form-group">
+    <label for="firstName">First name</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_firstName"
+    name="firstName"
+    id="firstName" />
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input class="form-control"
+        cam-variable-type="String"
+        cam-variable-name="application_lastName"
+        name="lastName"
+        id="lastName" />
+        </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control"
+            cam-variable-type="String"
+            cam-variable-name="application_email"
+            name="email" 
+            id="email"/>
+            </div>
+            <div class="form-group">
+                <label for="technicalSkills">Technical Competence</label>
+                <select class="form-select"
+                        cam-variable-type="Integer"
+                        cam-variable-name="application_technicalSkills"
+                        name="technicalSkills"
+                        id="technicalSkills"
+                >
+                <option value="1">1 - Novice</option>
+                <option value="2">2 - Beginner</option>
+                <option value="3">3 - Competent</option>
+                <option value="4">4 - Proficient</option>
+                <option value="5">5 - Expert</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="softSkills">Soft skills</label>
+                <select class="form-select"
+                        cam-variable-type="Integer"
+                        cam-variable-name="application_softSkills"
+                        name="softSkills"
+                        id="softSkills"
+                >
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+    <label for="motivationLetter">Motivation letter</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_motivationLetter"
+    name="motivationLetter"
+    id="motivationLetter" />
+    </div>
+    </form>

@@ -1,0 +1,72 @@
+<form name="ApplicationFormReceipt">
+    <div class="form-group">
+    <label for="firstName">First name</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_firstName"
+    name="firstName" 
+    readonly="true" />
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input class="form-control"
+        cam-variable-type="String"
+        cam-variable-name="application_lastName"
+        name="lasttName" 
+        readonly="true" />
+        </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control"
+            cam-variable-type="String"
+            cam-variable-name="application_email"
+            name="email" 
+            readonly="true" />
+            </div>
+
+            <div class="form-group">
+                <label for="technicalSkills">Technical Competence</label>
+                <input class="form-control"
+                       cam-variable-type="Integer"
+                       cam-variable-name="application_technicalSkills"
+                       name="technicalSkills"
+                       id="technicalSkills"
+                       readonly="true"  />
+            </div>
+            <div class="form-group">
+                <label for="softSkills">Soft skills</label>
+                <input class="form-control"
+                       cam-variable-type="Integer"
+                       cam-variable-name="application_softSkills"
+                       name="softSkills"
+                       id="softSkills"
+                       readonly="true"  />
+            </div>     
+    <label for="motivationLetter">Motivation letter</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_motivationLetter"
+    name="motivationLetter" 
+    readonly="true" />
+    </div>
+
+    <div class="form-group">
+        <label for="isPositive">Is desicion positive?</label>
+        <input
+        class="form-control"
+        cam-variable-name="decision_isPositive"
+        name="isPositive"
+        readonly="true" />
+        </div>
+        <div class="form-group">
+
+        <label for="explanation">Decision explanation</label>
+        <input
+        class="form-control"
+        cam-variable-name="decision_explanation"
+        name="explanation"
+        readonly="true" />
+        </div>
+
+    </form>
