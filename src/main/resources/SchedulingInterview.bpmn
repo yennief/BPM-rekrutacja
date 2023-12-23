@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1vco6x1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.18.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <bpmn:process id="SchedulingInterview" name="SchedulingInterview" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0aew58p</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_05ghf2w" name="Is date available?" default="Flow_0xi75gg">
+      <bpmn:incoming>Flow_0aew58p</bpmn:incoming>
+      <bpmn:outgoing>Flow_0xi75gg</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1j4k7un</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0aew58p" sourceRef="StartEvent_1" targetRef="Gateway_05ghf2w" />
+    <bpmn:scriptTask id="Activity_0doy628" name="set interview" scriptFormat="groovy">
+      <bpmn:incoming>Flow_0xi75gg</bpmn:incoming>
+      <bpmn:outgoing>Flow_1a9ywjk</bpmn:outgoing>
+      <bpmn:script>execution.setVariable("decision_interviewTimeAccepted", true)</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_0xi75gg" name="yes" sourceRef="Gateway_05ghf2w" targetRef="Activity_0doy628" />
+    <bpmn:endEvent id="Event_0lkp4y8">
+      <bpmn:incoming>Flow_1a9ywjk</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1a9ywjk" sourceRef="Activity_0doy628" targetRef="Event_0lkp4y8" />
+    <bpmn:endEvent id="Event_0ak9u99">
+      <bpmn:incoming>Flow_1j4k7un</bpmn:incoming>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_0ocyc9a" errorRef="Error_1hc91l5" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1j4k7un" name="no" sourceRef="Gateway_05ghf2w" targetRef="Event_0ak9u99">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${empty application_interviewDateTime}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmn:error id="Error_1hc91l5" name="SetInterviewError" errorCode="SetInterviewErrorCode" camunda:errorMessage="Interview date was not set" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SchedulingInterview">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="109" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_05ghf2w_di" bpmnElement="Gateway_05ghf2w" isMarkerVisible="true">
+        <dc:Bounds x="265" y="102" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="247" y="78" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mt16g5_di" bpmnElement="Activity_0doy628">
+        <dc:Bounds x="380" y="87" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lkp4y8_di" bpmnElement="Event_0lkp4y8">
+        <dc:Bounds x="542" y="109" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ak9u99_di" bpmnElement="Event_0ak9u99">
+        <dc:Bounds x="432" y="222" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="409" y="265" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0aew58p_di" bpmnElement="Flow_0aew58p">
+        <di:waypoint x="215" y="127" />
+        <di:waypoint x="265" y="127" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xi75gg_di" bpmnElement="Flow_0xi75gg">
+        <di:waypoint x="315" y="127" />
+        <di:waypoint x="380" y="127" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="341" y="103" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j4k7un_di" bpmnElement="Flow_1j4k7un">
+        <di:waypoint x="290" y="152" />
+        <di:waypoint x="290" y="240" />
+        <di:waypoint x="432" y="240" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="299" y="193" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a9ywjk_di" bpmnElement="Flow_1a9ywjk">
+        <di:waypoint x="480" y="127" />
+        <di:waypoint x="542" y="127" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
