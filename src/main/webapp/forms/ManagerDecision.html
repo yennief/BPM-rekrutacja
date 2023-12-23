@@ -43,24 +43,25 @@
                        id="softSkills"
                        readonly="true"  />
             </div>     
+    <label for="motivationLetter">Motivation letter</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_motivationLetter"
+    name="motivationLetter" 
+    readonly="true" />
     </div>
 
     <div class="form-group">
-        <label for="isPositive">Is desicion positive?</label>
-        <input
-        class="form-control"
-        cam-variable-name="decision_isPositive"
-        name="isPositive"
-        readonly="true" />
-        </div>
-
-        <div class="form-group">
-        <label for="explanation">Decision explanation</label>
-        <input
-        class="form-control"
-        cam-variable-name="decision_explanation"
-        name="explanation"
-        readonly="true" />
-        </div>
+        <label for="managerDecision">Decision</label>
+        <select class="form-select"
+                cam-variable-type="String"
+                cam-variable-name="application_managerDecision"
+                name="managerDecision"
+                id="managerDecision"
+        >
+            <option value="accept" selected> Accept </option>
+            <option value="reject"> Reject </option>
+        </select>
+    </div>
 
     </form>
