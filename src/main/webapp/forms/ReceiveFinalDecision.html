@@ -1,0 +1,27 @@
+<form name="ReceiveFinalDecision">
+    <div class="form-group">
+        <label for="finalDecision">Final decision</label>
+        <input class="form-control"
+               cam-variable-type="String"
+               cam-variable-name="application_finalDecision"
+               name="finalDecision"
+               id="finalDecision"
+               readonly="true"  />
+    </div>  
+    <label for="finalDecisionExplanation">Decision explanation</label>
+    <input class="form-control"
+    cam-variable-type="String"
+    cam-variable-name="application_finalDecisionExplanation"
+    name="finalDecisionExplanation"
+    readonly="true" />
+
+    <div class="form-group">
+        <label for="chanceToRetake">Chance to retake the technical exam</label>
+        <input
+        class="form-control"
+        cam-variable-name="decision_chanceToRetake"
+        name="chanceToRetake"
+        readonly="true" />
+        </div>
+
+    </form>
